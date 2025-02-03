@@ -13,15 +13,27 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
+/// <summary>
+/// Handles the generation and storage of PDF reports for financial transactions (Movimientos).
+/// </summary>
 public class MovimientoStoragePDF : IMovimientoStoragePDF
 {
     private readonly ILogger<MovimientoStoragePDF> _logger;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MovimientoStoragePDF"/> class.
+    /// </summary>
+    /// <param name="logger">Logger instance for logging messages.</param>
     public MovimientoStoragePDF(ILogger<MovimientoStoragePDF> logger)
     {
         _logger = logger;
     }
     
+    /// <summary>
+    /// Exports a list of financial transactions (Movimientos) to a PDF file and returns a file stream.
+    /// </summary>
+    /// <param name="entities">List of movimientos (transactions) to include in the PDF.</param>
+    /// <returns>A <see cref="FileStream"/> containing the generated PDF document.</returns>
     public async Task<FileStream> Export(List<Movimiento> entities)
     {
         _logger.LogInformation("Exporting Movimientos to PDF");

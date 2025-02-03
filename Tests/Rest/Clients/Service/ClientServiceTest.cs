@@ -210,6 +210,7 @@ public class ClientServiceTests
         ClassicAssert.IsNotNull(fileStream);
     }
 
+    [Test]
     public async Task GetAll_ShouldReturnListOfClients()
     {
         // Arrange
